@@ -17,25 +17,41 @@ function getIngredientsArray(pizza) {
 }
 
    %>
-<div class="col-md-6 col-lg-4 pizza-card">
-    <div class="thumbnail">
-        <img class="pizza-icon" src="<%= pizza.icon %>" alt="Pizza">
 
+
+<div class="col-sm-6 col-md-4">
+    <div class="thumbnail pizza-card">
         <% if(pizza.is_new) { %>
-        <span class="label label-danger">Нова</span>
+            <span class="badge newBadge">Новинка</span>
         <% } else if(pizza.is_popular) {%>
-        <span class="label label-success">Популярна</span>
+            <span class="badge popularBadge">Популярна</span>
         <% } %>
-
-        <div class="caption">
-            <span class="title"><%= pizza.title %></span>
-            <div class="type"><%= pizza.type %></div>
-            <div class="description">
-                <%= getIngredientsArray(pizza).join(", ") %>
+        <img src=<%= pizza.icon %> class="img-fluid">
+        <div class="caption"><h3 class="namePizza"><%= pizza.title %></h3>
+            <div class="typeOfPizza"><%= pizza.type %></div>
+            <p class="description"> <%= getIngredientsArray(pizza).join(", ") %>.</p>
+            <div class="columns">
+                <div class="pizzaColumn">
+                    <img src="assets/images/size-icon.svg">
+                    30
+                    <br><img src="assets/images/weight.svg">
+                    370</br>
+                    <p>
+                    <div class="price">99</div>
+                    <div>грн.</div>
+                    <button class="btn btn-warning buy-small">Купити</button>
+                </div>
+                <div class="pizzaColumn">
+                    <img src="assets/images/size-icon.svg">
+                    40
+                    <br><img src="assets/images/weight.svg">
+                    660</br>
+                    <p>
+                    <div class="price">149</div>
+                    <div>грн.</div>
+                    <button class="btn btn-warning buy-big">Купити</button>
+                </div>
             </div>
         </div>
-
-        <!-- Перед тим щоб показати кнопку необхідно переконатися, що піца має великий розмір -->
-        <button class="btn btn-primary buy-big">Купити велику</button>
     </div>
 </div>

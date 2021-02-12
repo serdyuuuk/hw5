@@ -13,7 +13,7 @@
             <img class="weight" src="assets/images/weight.svg">
             <%= pizza[size].weight %>
         </div>
-        <div class="price"><%= pizza[size].price %>грн
+        <div class="price"><%= pizza[size].price*quantity %>грн
             <button type="button" class="btn btn-danger minus"><i class="label minusLabel">-</i></button>
             <span class="number"><%= quantity %></span>
             <button type="button" class="btn btn-success plus"><i class="label plusLabel">+</i></button>

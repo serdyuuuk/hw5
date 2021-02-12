@@ -63,7 +63,16 @@ function getPizzaInCart() {
     //Повертає піци які зберігаються в кошику
     return Cart;
 }
-
+function updatePriceAndOrder() {
+    var price=0;
+    var number=0;
+    getPizzaInCart().forEach(element => {
+      price+=element.pizza[element.size].price*element.quantity;
+      number+=element.quantity;
+    });
+    $("#totalPrice").html(price+" грн");
+    $("#totalOrder").html(number);
+}
 function updateCart() {
     //Функція викликається при зміні вмісту кошика
     //Тут можна наприклад показати оновлений кошик на екрані та зберегти вміт кошика в Local Storage
@@ -80,7 +89,7 @@ function updateCart() {
         $node.find(".plus").click(function(){
             //Збільшуємо кількість замовлених піц
             cart_item.quantity += 1;
-
+            $node.find(".price").html("");
             //Оновлюємо відображення
             updateCart();
         });
@@ -102,6 +111,7 @@ function updateCart() {
         $cart.append($node);
     }
     basil.set("cartSt", Cart);
+    updatePriceAndOrder();
     Cart.forEach(showOnePizzaInCart);
 }
 

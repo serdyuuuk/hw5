@@ -27,7 +27,7 @@ function showPizzaList(list) {
 
         $pizza_list.append($node);
     }
-
+    $("#pizzasAll").html(list.length);
     list.forEach(showOnePizza);
 }
 $("body").find(".typeOfPizza").find("input").change(function(){
@@ -76,8 +76,23 @@ function filterPizza(filter) {
 
 function initialiseMenu() {
     //Показуємо усі піци
-    showPizzaList(Pizza_List)
+    showPizzaList(Pizza_List);
 }
+
+$(".orderButton").click(function(){
+    if (!($("#cart").is(":visible"))){
+        $("#cart").addClass("visible");
+        $("#cart").removeClass("notVisible");
+        $(".menu").removeClass("visible");
+        $(".menu").addClass("notVisible");
+    }
+    else {
+        $("#cart").addClass("notVisible");
+        $("#cart").removeClass("visible");
+        $(".menu").removeClass("notVisible");
+        $(".menu").addClass("visible");
+    }
+});
 
 exports.filterPizza = filterPizza;
 exports.initialiseMenu = initialiseMenu;

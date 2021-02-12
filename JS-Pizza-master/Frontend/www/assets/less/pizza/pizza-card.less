@@ -11,7 +11,12 @@
   @media (max-width: 640px) {
     height: 100%;
     width: 100%;
-    display: inline-block;
+    .notVisible {
+      display: none;
+    }
+    .visible {
+      display: block;
+    }
     position: relative;
     margin-bottom: 0;
   }
@@ -53,7 +58,7 @@
         display: inline-block;
         background: #f0ad4e;
         border-radius: 50%;
-        width: @sizeLabel;
+        min-width: @sizeLabel;
         height: @sizeLabel;
       }
 

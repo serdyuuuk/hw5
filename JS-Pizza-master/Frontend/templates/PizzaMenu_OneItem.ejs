@@ -31,26 +31,32 @@ function getIngredientsArray(pizza) {
             <div class="typeOfPizza"><%= pizza.type %></div>
             <p class="description"> <%= getIngredientsArray(pizza).join(", ") %>.</p>
             <div class="columns">
+                <% if(pizza.small_size!== undefined) { %>
                 <div class="pizzaColumn">
                     <img src="assets/images/size-icon.svg">
-                    30
+                    <%= pizza.small_size.size %>
                     <br><img src="assets/images/weight.svg">
-                    370</br>
+                    <%= pizza.small_size.weight %>
+                    </br>
                     <p>
-                    <div class="price">99</div>
+                    <div class="price"> <%= pizza.small_size.price %></div>
                     <div>грн.</div>
                     <button class="btn btn-warning buy-small">Купити</button>
                 </div>
+                    <% } %>
+                    <% if(pizza.big_size!== undefined) { %>
                 <div class="pizzaColumn">
                     <img src="assets/images/size-icon.svg">
-                    40
+                    <%= pizza.big_size.size %>
                     <br><img src="assets/images/weight.svg">
-                    660</br>
+                    <%= pizza.big_size.weight %>
+                    </br>
                     <p>
-                    <div class="price">149</div>
+                    <div class="price"><%= pizza.big_size.price %></div>
                     <div>грн.</div>
                     <button class="btn btn-warning buy-big">Купити</button>
                 </div>
+                    <% } %>
             </div>
         </div>
     </div>

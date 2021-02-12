@@ -15,7 +15,9 @@
     position: relative;
     margin-bottom: 0;
   }
-
+  .rightPanel::-webkit-scrollbar{
+    width: 0px;
+  }
   .rightPanel {
     overflow: auto;
     background: #e5e4e4;
@@ -29,6 +31,9 @@
     }
 
     .rightPanelLabel {
+      position: absolute;
+      width: 100%;
+      z-index: 5;
       font-weight: bold;
       display: block;
       background: white;
@@ -67,6 +72,7 @@
   }
 
   .buyPizzasList {
+    margin-top: @upPanelHeight;
     margin-bottom: 120px;
     .buyPizza {
       img{

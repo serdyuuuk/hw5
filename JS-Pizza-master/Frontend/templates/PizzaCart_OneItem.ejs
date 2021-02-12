@@ -1,11 +1,17 @@
 <div class="buyPizza">
     <div class="infAboutPizza">
-        <h4 class="pizzaName"> <%= pizza.title %> (<%= size %>)</h4>
+        <h4 class="pizzaName"> <%= pizza.title %>
+            <% if(size=="small_size") { %>
+                (Мала)
+            <% } else if(size=="big_size"){%>
+                (Велика)
+            <% }%>
+        </h4>
         <div class="sizeOfPizza">
             <img src="assets/images/size-icon.svg">
-            40
+            <%= pizza[size].size %>
             <img class="weight" src="assets/images/weight.svg">
-            610
+            <%= pizza[size].weight %>
         </div>
         <div class="price"><%= pizza[size].price %>грн
             <button type="button" class="btn btn-danger minus"><i class="label minusLabel">-</i></button>

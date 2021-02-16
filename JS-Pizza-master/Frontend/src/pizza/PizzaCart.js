@@ -55,8 +55,10 @@ exports.get= function(key) {return basil.get(key);};
 exports.set= function(key, value) {return basil.set(key, value);}
 
 function initialiseCart() {
-    Cart = basil.get("cartSt");
-    updateCart();
+    if(basil.get("cartSt") !== null) {
+        Cart = basil.get("cartSt");
+        updateCart();
+    }
 }
 
 function getPizzaInCart() {

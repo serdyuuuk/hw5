@@ -33,6 +33,8 @@ function showPizzaList(list) {
 $("body").find(".typeOfPizza").find("input").change(function(){
     filterPizza(this);
 });
+
+
 function filterPizza(filter) {
     //Масив куди потраплять піци які треба показати
     var pizza_shown = [];
